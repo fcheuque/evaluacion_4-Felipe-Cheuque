@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import Home from './pages/index';    
 import Acerca from './pages/acerca'; 
 import Contacto from './pages/contacto'
+import Pokedex from './pages/pokedex';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/acerca" element={<Acerca />} />
         <Route path="/contacto" element={<Contacto />} />
+        <Route path="/pokedex" element={<Pokedex />} />
       </Routes>
 
       <Footer />

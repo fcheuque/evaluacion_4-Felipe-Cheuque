@@ -7,30 +7,30 @@
 ---
 
 ## 1. Propósito del uso de IA
-La Inteligencia Artificial se utilizó como herramienta de apoyo técnico y mentoría durante el proceso de refactorización del proyecto web **WebCh**, pasando de una arquitectura tradicional **MPA (Multi-Page Application)** en HTML estático a una **SPA (Single-Page Application)** moderna desarrollada con **React** y **Vite**.
+La Inteligencia Artificial se empleó como herramienta de asistencia técnica y mentoría durante la migración del sitio web **WebCh** desde una arquitectura estática **MPA (Multi-Page Application)** hacia una **SPA (Single-Page Application)** desarrollada en **React** y **Vite**, incorporando estándares de accesibilidad, diseño responsivo y consumo de APIs públicas.
 
 ---
 
 ## 2. Áreas de aplicación y tareas asistidas
 
-### A. Arquitectura y configuración del proyecto
-* **Planificación de estructura:** Definición de la jerarquía de carpetas dentro de `src/` (`components/`, `pages/`, `assets/`).
-* **Enrutamiento del lado del cliente:** Implementación de `react-router-dom` (`BrowserRouter`, `Routes`, `Route` y `NavLink`) para gestionar la navegación sin recargas de página.
-* **Diagnóstico de errores:** Revisión de la estructura de archivos en Visual Studio Code para corregir rutas de importación de recursos (`vite.svg`, `hero.png`) y recuperar el punto de entrada `App.jsx`.
+### A. Arquitectura SPA y Enrutamiento
+* **Estructura modular:** Organización del proyecto en carpetas `components/`, `pages/` y `assets/`.
+* **Navegación sin recargas:** Implementación de `react-router-dom` (`BrowserRouter`, `Routes`, `Route`, `NavLink`) para gestionar las vistas `/`, `/acerca`, `/contacto` y `/pokedex`.
 
-### B. Refactorización y modularización de componentes
-* **Extracción de elementos comunes:** Separación de la barra de navegación (`Navbar.jsx`) y el pie de página (`Footer.jsx`) para evitar la duplicación de código entre vistas.
-* **Conversión de HTML a JSX:** Adaptación del código legado (`index.html`, `contacto.html`) a sintaxis JSX válida (conversión de `class` a `className`, `for` a `htmlFor`, cierre de etiquetas vacías y transformación de estilos en línea a objetos de JavaScript).
-* **Gestión de estado:** Implementación del hook `useState` para controlar la interactividad del contador y el manejo de datos en el formulario de contacto.
+### B. Refactorización y Diseño Responsivo
+* **Conversión HTML a JSX:** Migración de vistas estáticas (`index`, `acerca`, `contacto`) a componentes funcionales de React, adaptando atributos (`className`, `htmlFor`) e importación estática de imágenes (`mi-foto.jpg`).
+* **Adaptabilidad multidispositivo:** Limpieza de estilos base de Vite (`index.css`) y creación de reglas CSS con `@media queries` en `App.css` para pantallas de escritorio, tablet (`768px`) y dispositivos móviles (`480px`).
 
 ### C. Accesibilidad Web (WAI-ARIA)
-* **Mejoras semánticas en `contacto.jsx`:** Incorporación de atributos WAI-ARIA (`aria-labelledby`, `aria-label`, `aria-required`, `aria-describedby`) para garantizar la compatibilidad con lectores de pantalla.
-* **Notificaciones accesibles:** Sustitución de alertas bloqueantes (`alert()`) por una región viva (`role="status"` y `aria-live="polite"`) para anunciar el envío exitoso del formulario.
+* **Formularios e interfaces inclusivas:** Incorporación de atributos `aria-labelledby`, `aria-label`, `aria-required` y `aria-describedby` en `contacto.jsx` y `pokedex.jsx`.
+* **Notificaciones no intrusivas:** Implementación de regiones vivas (`role="status"` y `aria-live="polite"`) para anunciar estados de carga y envío de formularios a lectores de pantalla.
+
+### D. Consumo de API Pública (PokeAPI) y Resolución de Red
+* **Integración RESTful:** Creación del componente `pokedex.jsx` utilizando `fetch`, `useState` y `useEffect` para consultar datos y filtrarlos en tiempo real.
+* **Configuración de Proxy en Vite:** Resolución de errores de red (`Failed to fetch`) y certificados SSL mediante la configuración de un proxy inverso en `vite.config.js` (`/api`).
+* **Gestión de recursos locales y respaldo:** Estructuración de imágenes locales en `public/pokemon/` con manejo de errores (`onError`) hacia un servicio de respaldo automático.
 
 ---
 
 ## 3. Validación y supervisión humana
-Todo el código sugerido por la IA fue revisado, adaptado e integrado manualmente en el entorno local de desarrollo (Visual Studio Code), verificando:
-1. La correcta compilación y ejecución mediante el servidor de desarrollo de Vite (`npm run dev`).
-2. La coherencia con los estilos visuales originales del proyecto (`App.css` e `index.css`).
-3. El funcionamiento efectivo de la navegación entre rutas y la interactividad de los formularios.
+Todo el código generado fue revisado, probado y ajustado manualmente en **Visual Studio Code**, validando su funcionamiento en el servidor local de Vite (`npm run dev`), la adaptabilidad visual en modo dispositivo del navegador y la correcta navegación entre rutas.

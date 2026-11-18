@@ -11,6 +11,7 @@ function Navbar() {
           <li><NavLink to="/">Inicio</NavLink></li>
           <li><NavLink to="/acerca">Acerca de mi</NavLink></li>
           <li><NavLink to="/contacto">Contacto</NavLink></li>
+          <li><NavLink to="/pokedex">Pokédex</NavLink></li>
         </ul>
       </nav>
     </header>
